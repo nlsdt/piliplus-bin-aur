@@ -52,6 +52,9 @@ echo "Using asset: $asset_url"
 sed -i -E \
   -e "s/^pkgver=.*/pkgver=${pkgver}/" \
   -e "s/^pkgrel=.*/pkgrel=1/" \
-  -e "s|^source_x86_64=\(.*\)|source_x86_64=(\"${asset_url}\")|" \
+  "$pkgb"
+
+sed -i -E \
+  -e "s|\"https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/[^\"]+\"|\"${asset_url}\"|" \
   "$pkgb"
 
